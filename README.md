@@ -9,8 +9,8 @@
 - [x] Attach database to UI
 - [x] Add authentication (w/ clerk)
 - [x] Add image upload
-- [ ] "taint" (server-only)
-- [ ] Use Next/Image component
+- [x] "taint" (server-only)
+- [x] Use Next/Image component
 - [ ] Error management (/ Sentry)
 - [ ] Routing/image page (parrallel route)
 - [ ] Delete button (w/ Server Actions)

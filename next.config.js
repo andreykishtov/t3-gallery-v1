@@ -5,7 +5,7 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {
+const coreConfig = {
   images: {
     remotePatterns: [
       {
@@ -23,4 +23,4 @@ const config = {
   },
 };
 
-export default config;
+export default coreConfig;

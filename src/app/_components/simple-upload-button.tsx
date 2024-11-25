@@ -58,6 +58,7 @@ export function SimpleUploadButton() {
     },
     onClientUploadComplete() {
       toast.dismiss("upload-begin");
+      toast("Upload complete!");
       router.refresh();
     },
   });

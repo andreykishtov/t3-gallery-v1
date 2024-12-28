@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 import posthog from "posthog-js";
 import { toast } from "sonner";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
@@ -22,6 +22,12 @@ export const ourFileRouter = {
       if (!user.userId) {
         // eslint-disable-next-line @typescript-eslint/only-throw-error
         throw new UploadThingError("Unauthorized");
+      }
+
+      const fullUserData = await clerkClient.users.getUser(user.userId);
+
+      if (!fullUserData?.privateMetadata?.["can-upload"]) {
+        throw new UploadThingError("User Does Not Have Upload Permissions");
       }
 
       const { success } = await ratelimit.limit(user.userId);
